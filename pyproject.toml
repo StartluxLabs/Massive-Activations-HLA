@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "massive-activations-hla"
+version = "0.1.0"
+description = "Reproducibility toolkit for massive activations, pre-attention spikes, and inter-spike plateaus in hybrid linear attention language models."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+  {name = "Massive-Activations-HLA Authors"}
+]
+dependencies = [
+  "numpy>=1.24",
+  "pandas>=2.0",
+  "pyyaml>=6.0",
+  "tqdm>=4.66",
+  "matplotlib>=3.7",
+  "seaborn>=0.13",
+  "torch>=2.1",
+  "transformers>=4.40",
+  "huggingface_hub>=0.23",
+  "accelerate>=0.29",
+  "safetensors>=0.4",
+]
+
+[project.optional-dependencies]
+datasets = ["datasets>=2.19"]
+dev = ["pytest>=8.0", "ruff>=0.5"]
+modern = ["datasets>=2.19", "einops>=0.7"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]
