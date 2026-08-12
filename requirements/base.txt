@@ -1,0 +1,11 @@
+numpy>=1.24
+pandas>=2.0
+pyyaml>=6.0
+tqdm>=4.66
+matplotlib>=3.7
+seaborn>=0.13
+torch>=2.1
+transformers>=4.40
+huggingface_hub>=0.23
+accelerate>=0.29
+safetensors>=0.4
