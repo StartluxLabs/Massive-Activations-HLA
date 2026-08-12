@@ -1,0 +1,42 @@
+# Default open-data loaders. For exact paper reproduction, use local JSONL
+# overrides with the same domain names and 100 examples per domain.
+datasets:
+  wikitext:
+    loader: hf
+    path: Salesforce/wikitext
+    name: wikitext-103-raw-v1
+    split: validation
+    text_key: text
+    limit: 100
+
+  scientific_papers:
+    loader: hf
+    path: scientific_papers
+    name: arxiv
+    split: validation
+    text_key: article
+    limit: 100
+
+  gsm8k:
+    loader: hf
+    path: gsm8k
+    name: main
+    split: test
+    text_key: question
+    limit: 100
+
+  codesearchnet:
+    loader: hf
+    path: code_search_net
+    name: python
+    split: validation
+    text_key: whole_func_string
+    limit: 100
+
+  flores_zh:
+    loader: hf
+    path: facebook/flores
+    name: zho_Hans
+    split: dev
+    text_key: sentence
+    limit: 100
