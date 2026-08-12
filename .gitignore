@@ -1,0 +1,32 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Local machine / cluster paths.
+configs/local/*.yaml
+!configs/local/*.example.yaml
+
+# Generated artifacts.
+outputs/
+runs/
+wandb/
+logs/
+
+# Large model/data files.
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.arrow
+*.parquet
+
+# OS/editor noise.
+.DS_Store
+.idea/
+.vscode/
