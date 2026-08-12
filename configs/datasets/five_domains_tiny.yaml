@@ -1,0 +1,28 @@
+# Offline smoke-test prompts covering the five paper domains.
+# Use configs/datasets/five_domains.yaml or local JSONL overrides for full
+# reproduction over 100 examples per domain.
+datasets:
+  wikitext:
+    loader: inline
+    examples:
+      - "Robert wrote a short note about the history of the city and its early schools."
+
+  scientific_papers:
+    loader: inline
+    examples:
+      - "We study a neural sequence model and report improved accuracy across evaluation tasks."
+
+  gsm8k:
+    loader: inline
+    examples:
+      - "Jan has 3 apples and buys 4 more. How many apples does Jan have now?"
+
+  codesearchnet:
+    loader: inline
+    examples:
+      - "def add_numbers(a, b):\n    return a + b"
+
+  flores_zh:
+    loader: inline
+    examples:
+      - "虫子在温暖的夏天里飞过花园。"
