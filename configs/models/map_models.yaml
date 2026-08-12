@@ -1,0 +1,71 @@
+# M-A-P model-suite registry.
+#
+# Set MAP_MODEL_ROOT to the directory containing model family folders or replace
+# paths in a local override config. Checkpoints are not distributed with code.
+models:
+  gdn_1p3b_12to1:
+    family: GatedDeltaNet
+    adapter: map
+    path: ${MAP_MODEL_ROOT}/GatedDeltaNet/1.3B-100B-GatedDeltaNet-hybrid-12-1
+    scale: 1.3B
+    hybrid_ratio: "12:1"
+    num_layers: 24
+    full_attention_layers: [12, 24]
+    metadata:
+      group: map_1p3b_12to1
+
+  gla_1p3b_12to1:
+    family: GLA
+    adapter: map
+    path: ${MAP_MODEL_ROOT}/GLA/1.3B-100B-GLA-hybrid-12-1
+    scale: 1.3B
+    hybrid_ratio: "12:1"
+    num_layers: 24
+    full_attention_layers: [12, 24]
+    metadata:
+      group: map_1p3b_12to1
+
+  deltanet_1p3b_12to1:
+    family: DeltaNet
+    adapter: map
+    path: ${MAP_MODEL_ROOT}/DeltaNet/1.3B-100B-DeltaNet-hybrid-12-1
+    scale: 1.3B
+    hybrid_ratio: "12:1"
+    num_layers: 24
+    full_attention_layers: [12, 24]
+    metadata:
+      group: map_1p3b_12to1
+
+  hgrn_1p3b_12to1:
+    family: HGRN
+    adapter: map
+    path: ${MAP_MODEL_ROOT}/HGRN/1.3B-100B-HGRN-hybrid-12-1
+    scale: 1.3B
+    hybrid_ratio: "12:1"
+    num_layers: 24
+    full_attention_layers: [12, 24]
+    metadata:
+      group: map_1p3b_12to1
+
+  retnet_1p3b_12to1:
+    family: RetNet
+    adapter: map
+    path: ${MAP_MODEL_ROOT}/RetNet/1.3B-100B-RetNet-hybrid-12-1
+    scale: 1.3B
+    hybrid_ratio: "12:1"
+    num_layers: 24
+    full_attention_layers: [12, 24]
+    metadata:
+      group: map_1p3b_12to1
+
+  transformer_1p3b_full:
+    family: Transformer
+    adapter: map
+    path: ${MAP_MODEL_ROOT}/Transformer/1.3B-100B-Transformer
+    scale: 1.3B
+    hybrid_ratio: full
+    num_layers: 24
+    full_attention_layers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+                            13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+    metadata:
+      group: map_1p3b_12to1
