@@ -1,0 +1,4 @@
+prompts:
+  summer:
+    domain: running_example
+    text: "Summer is warm. Winter is cold."
