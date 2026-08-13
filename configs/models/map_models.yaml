@@ -1,12 +1,12 @@
 # M-A-P model-suite registry.
 #
-# Set MAP_MODEL_ROOT to the directory containing model family folders or replace
-# paths in a local override config. Checkpoints are not distributed with code.
+# Public M-A-P checkpoints. Replace `hf_id` with `path` in a local override when
+# using an offline mirror.
 models:
   gdn_1p3b_12to1:
     family: GatedDeltaNet
     adapter: map
-    path: ${MAP_MODEL_ROOT}/GatedDeltaNet/1.3B-100B-GatedDeltaNet-hybrid-12-1
+    hf_id: m-a-p/1.3B-100B-GatedDeltaNet-hybrid-12-1
     scale: 1.3B
     hybrid_ratio: "12:1"
     num_layers: 24
@@ -17,7 +17,7 @@ models:
   gla_1p3b_12to1:
     family: GLA
     adapter: map
-    path: ${MAP_MODEL_ROOT}/GLA/1.3B-100B-GLA-hybrid-12-1
+    hf_id: m-a-p/1.3B-100B-GLA-hybrid-12-1
     scale: 1.3B
     hybrid_ratio: "12:1"
     num_layers: 24
@@ -28,7 +28,7 @@ models:
   deltanet_1p3b_12to1:
     family: DeltaNet
     adapter: map
-    path: ${MAP_MODEL_ROOT}/DeltaNet/1.3B-100B-DeltaNet-hybrid-12-1
+    hf_id: m-a-p/1.3B-100B-DeltaNet-hybrid-12-1
     scale: 1.3B
     hybrid_ratio: "12:1"
     num_layers: 24
@@ -39,7 +39,7 @@ models:
   hgrn_1p3b_12to1:
     family: HGRN
     adapter: map
-    path: ${MAP_MODEL_ROOT}/HGRN/1.3B-100B-HGRN-hybrid-12-1
+    hf_id: m-a-p/1.3B-100B-HGRN-hybrid-12-1
     scale: 1.3B
     hybrid_ratio: "12:1"
     num_layers: 24
@@ -50,7 +50,7 @@ models:
   retnet_1p3b_12to1:
     family: RetNet
     adapter: map
-    path: ${MAP_MODEL_ROOT}/RetNet/1.3B-100B-RetNet-hybrid-12-1
+    hf_id: m-a-p/1.3B-100B-RetNet-hybrid-12-1
     scale: 1.3B
     hybrid_ratio: "12:1"
     num_layers: 24
@@ -61,7 +61,7 @@ models:
   transformer_1p3b_full:
     family: Transformer
     adapter: map
-    path: ${MAP_MODEL_ROOT}/Transformer/1.3B-100B-Transformer
+    hf_id: m-a-p/transformer_1.3B_baseline
     scale: 1.3B
     hybrid_ratio: full
     num_layers: 24

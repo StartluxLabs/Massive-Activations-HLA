@@ -8,17 +8,23 @@ The released GDN quickstart loads directly from:
 startlux-models/Massive-Activations-HLA
 ```
 
-For local M-A-P checkpoints, modern models, or a local mirror of the released
-GDN checkpoints, set environment variables and edit/copy the model config:
+The public M-A-P registry also loads directly from Hugging Face. For an offline
+M-A-P mirror or local modern models, copy the registry and replace `hf_id` with
+local `path` entries. Modern-model roots can be provided with:
 
 ```bash
-export MAP_MODEL_ROOT=/path/to/map/checkpoints
-export RELEASED_GDN_ROOT=/path/to/released-gdn-checkpoints
 export MODERN_MODEL_ROOT=/path/to/modern/models
 ```
 
-You may also create `configs/local/local_paths.yaml` from the example file.
-Local config files are ignored by git.
+For a local mirror of released GDN checkpoints, copy
+`configs/models/released_gdn_models.yaml` and replace `hf_id`/`subfolder` with
+direct `path` entries. `configs/local/local_paths.example.yaml` is a template,
+not an automatically loaded configuration file.
+
+Run `python scripts/check_environment.py` before the first quickstart. The
+public quickstart supports baseline and no-output-gate checkpoints. The
+`gdn-gatedfa-*` weights require an undistributed full-attention-gate integration;
+see README.md for scope and attribution.
 
 ## 2. Run morphology on the Summer prompt
 

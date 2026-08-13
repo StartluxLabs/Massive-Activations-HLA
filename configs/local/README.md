@@ -1,5 +1,6 @@
-Place machine-specific path overrides here.
+Place machine-specific notes or copied registry files here. Files in this
+directory are ignored by git except `*.example.yaml`.
 
-Files in this directory are ignored by git except `*.example.yaml`.
-Copy `local_paths.example.yaml` to `local_paths.yaml` and edit paths for your
-cluster or workstation.
+`local_paths.example.yaml` is a template only: it is not loaded automatically.
+Export the listed environment variables or pass an edited model registry to
+`--models`.

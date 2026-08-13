@@ -18,6 +18,10 @@ when full attention becomes denser, persistent **inter-spike plateaus (ISP)**.
 
 The paper link will be updated once the arXiv preprint is public.
 
+A synchronized Hugging Face model-card source is maintained at
+[`docs/HUGGINGFACE_MODEL_CARD.md`](docs/HUGGINGFACE_MODEL_CARD.md) so that model
+compatibility claims stay aligned with this README.
+
 ## What this repository provides
 
 This repository contains clean, paper-facing code for reproducing the main
@@ -76,7 +80,8 @@ The paper focuses on two characteristic MA morphologies:
 
 The toolkit is designed for three use cases:
 
-1. **Reproduce the paper figures and tables** from released checkpoints.
+1. **Reproduce the released-checkpoint analysis pipeline** for the public
+   prompts and checkpoints described below.
 2. **Inspect new HLA models** by tracing first-token or arbitrary-token MA
    trajectories.
 3. **Compare architectures** using the same PAS/ISP metrics and visualization
@@ -85,12 +90,13 @@ The toolkit is designed for three use cases:
 
 ## Installation
 
-Create a fresh environment and install the package:
+Create the tested released-GDN environment:
 
 ```bash
-conda create -n ma-hla python=3.10 -y
+conda create -n ma-hla python=3.12 -y
 conda activate ma-hla
-pip install -e .
+python -m pip install --upgrade pip
+bash scripts/install_released_gdn_cu126.sh
 ```
 
 For HuggingFace datasets:
@@ -99,9 +105,33 @@ For HuggingFace datasets:
 pip install -r requirements/datasets.txt
 ```
 
-Some models require Flash Linear Attention (FLA), Flash Attention, or
-model-specific remote code. The released GDN quickstart is the recommended
-starting point.
+The installation script uses the exact tested PyTorch wheel:
+
+```bash
+torch==2.7.1+cu126
+```
+
+It installs the official `causal-conv1d` and `flash-attn` PyTorch 2.7/CUDA 12
+wheels, verifies their checksums, and then installs FLA.
+
+The released baseline and no-output-gate GDN checkpoints are tested with
+`flash-linear-attention==0.5.2` (upstream tag `v0.5.2`, commit
+`9c8e42e762fce087c27b673af4922795d9edb85e`). For the exact A800/CUDA 12.6
+environment, follow [INSTALL.md](INSTALL.md).
+
+### Full-attention-gate ablation scope
+
+The two `gdn-gatedfa-*` checkpoints use a post-SDPA, head-specific sigmoid
+output gate inspired by the **G1** design in [Gated Attention for Large Language
+Models: Non-linearity, Sparsity, and Attention-Sink-Free](https://arxiv.org/abs/2505.06708)
+([official code](https://github.com/qiuzh20/gated_attention)). Our Gated
+DeltaNet integration of that gate is not distributed in this repository. Those
+two checkpoints are therefore released as **weights-only research artifacts**
+and are not part of the public, from-scratch quickstart. The loader fails with
+an explicit compatibility message instead of silently loading them incorrectly.
+
+All baseline and `gdn-nooutgate-*` checkpoints are covered by the public FLA
+environment and are reproducible from the published code and weights.
 
 ## Quickstart: plot a PAS morphology curve
 
@@ -125,11 +155,15 @@ Outputs are written to:
 outputs/quickstart/morphology/gdn_340m_pas_layer12/summer/
 ```
 
-For an offline smoke test that does not download datasets, use:
+For a smoke test that does not download datasets, use:
 
 ```bash
 --datasets configs/datasets/five_domains_tiny.yaml --limit 1
 ```
+
+This is an **offline dataset-input** test, not a fully offline model test: the
+checkpoint is still downloaded from Hugging Face unless it is already cached or
+you configure a local model path.
 
 ## Compute PAS/ISP metrics
 
@@ -199,7 +233,7 @@ The atlas captures and visualizes the signed contribution of:
 | Registry | Purpose |
 |---|---|
 | `configs/models/released_gdn_models.yaml` | Released controlled GDN checkpoints from HuggingFace |
-| `configs/models/map_models.yaml` | Local M-A-P / controlled architecture checkpoints |
+| `configs/models/map_models.yaml` | Public M-A-P / controlled architecture checkpoints |
 | `configs/models/modern_hybrid_models.yaml` | Optional modern pretrained hybrid models |
 
 The released GDN registry points to:
@@ -220,8 +254,9 @@ math reasoning, code, and multilingual text. This repository provides:
 - `configs/datasets/five_domains.yaml`: HuggingFace dataset loaders;
 - `configs/datasets/five_domains_tiny.yaml`: offline smoke-test prompts.
 
-For exact reproduction, use local JSONL overrides with the same domain names and
-the desired number of examples.
+The repository does not publish the exact sampled JSONL files used for every
+paper panel. `five_domains.yaml` reproduces the public loading protocol, while
+exact input-level reproduction requires the corresponding sampled JSONL files.
 
 ## Repository layout
 
@@ -251,13 +286,18 @@ tests/
 
 - Large modern hybrid models may require substantial GPU memory and
   model-specific environments.
-- The released GDN checkpoints require bundled FLA compatibility code. The
-  `released_gdn` adapter downloads and registers it automatically from the
-  HuggingFace model repo.
+- Baseline and no-output-gate GDN checkpoints use public FLA v0.5.2. The
+  full-attention-gate ablation is weights-only as documented above.
 - `five_domains_tiny.yaml` is only a smoke-test input set; it is not a substitute
   for the full paper evaluation.
 - This repository is organized for analysis and visualization, not for training
   new models from scratch.
+
+## Licenses
+
+The analysis code in this repository is MIT licensed. Released model weights
+are Apache-2.0 licensed in the Hugging Face repository. Flash Linear Attention
+and all datasets retain their own licenses and terms.
 
 ## Citation
 

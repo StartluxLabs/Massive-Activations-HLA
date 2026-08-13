@@ -1,2 +1,2 @@
-datasets>=2.19
+datasets>=3.3,<5
 einops>=0.7

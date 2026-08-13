@@ -2,6 +2,19 @@
 
 This project is organized by paper artifact rather than by exploratory scripts.
 
+## Reproduction scope
+
+The public from-scratch workflow covers all released baseline and
+no-output-gate GDN checkpoints. The `gdn-gatedfa-*` checkpoints are weights-only:
+their full-attention output gate follows the post-SDPA, head-specific sigmoid
+G1 design from [Gated Attention](https://arxiv.org/abs/2505.06708)
+([official code](https://github.com/qiuzh20/gated_attention)), but the exact
+Gated DeltaNet integration is not distributed.
+
+The bundled Summer prompt and inline five-domain inputs reproduce the analysis
+pipeline. Exact input-level regeneration of every paper panel additionally
+requires the sampled JSONL inputs used for that panel.
+
 ## Morphology figures
 
 Use:
@@ -16,6 +29,9 @@ Artifacts:
 - Fig. 3: PAS across linear-attention architectures.
 - Fig. 4: representative large-scale pretrained hybrid models.
 - Fig. 17-20: appendix token/domain/ratio/modern-model morphology panels.
+
+The scripts generate the same artifact types and metric definitions; exact
+paper figures require the model/input registry used by the corresponding panel.
 
 ## PAS/ISP metrics
 

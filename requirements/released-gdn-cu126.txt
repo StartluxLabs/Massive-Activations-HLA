@@ -1,0 +1,19 @@
+# Reproduction lock tested on NVIDIA A800 with CUDA 12.6.
+# Use scripts/install_released_gdn_cu126.sh: the two CUDA extensions must be
+# installed after PyTorch and with build isolation disabled.
+--extra-index-url https://download.pytorch.org/whl/cu126
+torch==2.7.1+cu126
+transformers==4.53.3
+huggingface_hub==0.36.2
+accelerate==1.14.0
+safetensors==0.8.0
+triton==3.3.1
+flash-linear-attention==0.5.2
+causal-conv1d==1.5.3.post1
+flash-attn==2.8.3.post1
+numpy==2.5.2
+pandas==3.0.5
+pyyaml==6.0.3
+matplotlib==3.11.1
+seaborn==0.13.2
+tqdm==4.70.0
