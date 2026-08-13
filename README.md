@@ -11,7 +11,7 @@ architecture-aligned activation events: sharp **pre-attention spikes (PAS)** and
 when full attention becomes denser, persistent **inter-spike plateaus (ISP)**.
 
 [Paper](https://arxiv.org/abs/2608.12149) ·
-[Models on Hugging Face](https://huggingface.co/startlux-models/Massive-Activations-HLA) ·
+[Models on Hugging Face](https://huggingface.co/collections/startlux-models/massive-activations-in-hybrid-linear-attention-models) ·
 [Quickstart](QUICKSTART.md) ·
 [Reproduction guide](docs/reproduction.md) ·
 [Installation](INSTALL.md)
