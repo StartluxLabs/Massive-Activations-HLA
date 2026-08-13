@@ -10,13 +10,11 @@ This project studies **massive activations (MAs)** in hybrid linear attention
 architecture-aligned activation events: sharp **pre-attention spikes (PAS)** and,
 when full attention becomes denser, persistent **inter-spike plateaus (ISP)**.
 
-[Paper (arXiv coming soon)](#citation) ·
+[Paper](https://arxiv.org/abs/2608.12149) ·
 [Models on Hugging Face](https://huggingface.co/startlux-models/Massive-Activations-HLA) ·
 [Quickstart](QUICKSTART.md) ·
 [Reproduction guide](docs/reproduction.md) ·
 [Installation](INSTALL.md)
-
-The paper link will be updated once the arXiv preprint is public.
 
 A synchronized Hugging Face model-card source is maintained at
 [`docs/HUGGINGFACE_MODEL_CARD.md`](docs/HUGGINGFACE_MODEL_CARD.md) so that model
@@ -301,5 +299,17 @@ and all datasets retain their own licenses and terms.
 
 ## Citation
 
-If you use this repository, please cite the paper. BibTeX will be added once the
-paper metadata is finalized.
+If you use this repository, please cite the
+[paper](https://arxiv.org/abs/2608.12149):
+
+```bibtex
+@article{su2026massive,
+  title={Massive Activations in Hybrid Linear Attention Large Language Models:
+         Pre-Attention Spikes and Inter-Spike Plateaus},
+  author={Su, Zunhai and Sun, Bohan and Zhuang, Xialie and Zhang, Shuibai and
+          Xiao, He and Xiong, Jing and Zhang, Hengyuan and Zhou, Zhongzhu and
+          Zhang, Tiantian and Wong, Ngai and Kuo, Chuan-Wei},
+  journal={arXiv preprint arXiv:2608.12149},
+  year={2026}
+}
+```

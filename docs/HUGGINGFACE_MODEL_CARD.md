@@ -13,7 +13,7 @@ tags:
 
 Controlled-pretraining checkpoints accompanying **Massive Activations in Hybrid
 Linear Attention Large Language Models: Pre-Attention Spikes and Inter-Spike
-Plateaus**.
+Plateaus** ([arXiv:2608.12149](https://arxiv.org/abs/2608.12149)).
 
 Use the [official analysis repository](https://github.com/StartluxLabs/Massive-Activations-HLA)
 for installation, model registries, morphology traces, PAS/ISP metrics, and
@@ -78,3 +78,17 @@ FLA version and recover full-attention layer metadata consistently.
 These are research checkpoints, not instruction-tuned or safety-tuned models.
 They have not been validated for production use. The gated-FA variants require
 an undistributed compatibility implementation as described above.
+
+## Citation
+
+```bibtex
+@article{su2026massive,
+  title={Massive Activations in Hybrid Linear Attention Large Language Models:
+         Pre-Attention Spikes and Inter-Spike Plateaus},
+  author={Su, Zunhai and Sun, Bohan and Zhuang, Xialie and Zhang, Shuibai and
+          Xiao, He and Xiong, Jing and Zhang, Hengyuan and Zhou, Zhongzhu and
+          Zhang, Tiantian and Wong, Ngai and Kuo, Chuan-Wei},
+  journal={arXiv preprint arXiv:2608.12149},
+  year={2026}
+}
+```
