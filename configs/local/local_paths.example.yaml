@@ -1,4 +1,2 @@
-MAP_MODEL_ROOT: /path/to/map/checkpoints
-RELEASED_GDN_ROOT: /path/to/released-gdn-checkpoints
 MODERN_MODEL_ROOT: /path/to/modern/hybrid/models
 DATA_ROOT: /path/to/local/datasets

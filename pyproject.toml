@@ -7,29 +7,33 @@ name = "massive-activations-hla"
 version = "0.1.0"
 description = "Reproducibility toolkit for massive activations, pre-attention spikes, and inter-spike plateaus in hybrid linear attention language models."
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.10,<3.13"
 license = {text = "MIT"}
 authors = [
   {name = "Massive-Activations-HLA Authors"}
 ]
 dependencies = [
-  "numpy>=1.24",
-  "pandas>=2.0",
-  "pyyaml>=6.0",
-  "tqdm>=4.66",
-  "matplotlib>=3.7",
-  "seaborn>=0.13",
-  "torch>=2.1",
-  "transformers>=4.40",
-  "huggingface_hub>=0.23",
-  "accelerate>=0.29",
-  "safetensors>=0.4",
+  "numpy>=1.26,<3",
+  "pandas>=2.2,<4",
+  "pyyaml>=6.0,<7",
+  "tqdm>=4.66,<5",
+  "matplotlib>=3.8,<4",
+  "seaborn>=0.13,<0.14",
+  "torch>=2.5,<2.11",
+  "transformers>=4.53,<4.54",
+  "huggingface_hub>=0.30,<1",
+  "accelerate>=1.0,<2",
+  "safetensors>=0.4,<1",
 ]
 
 [project.optional-dependencies]
-datasets = ["datasets>=2.19"]
+datasets = ["datasets>=3.3,<5"]
 dev = ["pytest>=8.0", "ruff>=0.5"]
-modern = ["datasets>=2.19", "einops>=0.7"]
+modern = ["datasets>=3.3,<5", "einops>=0.7"]
+released-gdn = [
+  "flash-linear-attention==0.5.2",
+  "causal-conv1d==1.5.3.post1",
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]

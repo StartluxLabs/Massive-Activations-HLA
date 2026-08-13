@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+python scripts/check_environment.py
+
 PYTHONPATH=src python scripts/run_morphology.py \
   --models configs/models/released_gdn_models.yaml \
   --model-names gdn_340m_pas_layer12 \

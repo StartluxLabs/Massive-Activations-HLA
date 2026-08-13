@@ -3,6 +3,9 @@
 # These are intended for reproducing controlled PAS/ISP and output-gating
 # figures. By default, checkpoints are loaded from the public HuggingFace repo
 # startlux-models/Massive-Activations-HLA with one checkpoint per subfolder.
+# Baseline and no-output-gate models use public FLA v0.5.2. The two gated-FA
+# entries are weights-only unless metadata.inference_code is explicitly set to
+# a compatible local implementation; see README.md.
 models:
   gdn_340m_pas_layer04:
     family: GatedDeltaNet
@@ -15,7 +18,6 @@ models:
     metadata:
       group: controlled_pas
       train_tokens: 10B
-      inference_code_subfolder: _inference_code/gatedfa_fla_compat
 
   gdn_340m_pas_layer12:
     family: GatedDeltaNet
@@ -28,7 +30,6 @@ models:
     metadata:
       group: controlled_pas
       train_tokens: 10B
-      inference_code_subfolder: _inference_code/gatedfa_fla_compat
 
   gdn_340m_pas_layer20:
     family: GatedDeltaNet
@@ -41,7 +42,6 @@ models:
     metadata:
       group: controlled_pas
       train_tokens: 10B
-      inference_code_subfolder: _inference_code/gatedfa_fla_compat
 
   gdn_1p3b_pas_layer12:
     family: GatedDeltaNet
@@ -54,7 +54,6 @@ models:
     metadata:
       group: controlled_pas
       train_tokens: 50B
-      inference_code_subfolder: _inference_code/gatedfa_fla_compat
 
   gdn_340m_isp_3to1:
     family: GatedDeltaNet
@@ -68,7 +67,6 @@ models:
     metadata:
       group: controlled_isp
       train_tokens: 10B
-      inference_code_subfolder: _inference_code/gatedfa_fla_compat
 
   gdn_1p3b_isp_3to1:
     family: GatedDeltaNet
@@ -82,7 +80,6 @@ models:
     metadata:
       group: controlled_isp
       train_tokens: 50B
-      inference_code_subfolder: _inference_code/gatedfa_fla_compat
 
   gdn_gatedfa_340m_pas_layer12:
     family: GatedDeltaNet
@@ -96,7 +93,6 @@ models:
       group: controlled_gating
       variant: gated_fa
       train_tokens: 10B
-      inference_code_subfolder: _inference_code/gatedfa_fla_compat
 
   gdn_nooutgate_340m_pas_layer12:
     family: GatedDeltaNet
@@ -110,7 +106,6 @@ models:
       group: controlled_gating
       variant: no_out_gate
       train_tokens: 10B
-      inference_code_subfolder: _inference_code/gatedfa_fla_compat
 
   gdn_gatedfa_340m_isp_3to1:
     family: GatedDeltaNet
@@ -125,7 +120,6 @@ models:
       group: controlled_gating
       variant: gated_fa
       train_tokens: 10B
-      inference_code_subfolder: _inference_code/gatedfa_fla_compat
 
   gdn_nooutgate_340m_isp_3to1:
     family: GatedDeltaNet
@@ -140,4 +134,3 @@ models:
       group: controlled_gating
       variant: no_out_gate
       train_tokens: 10B
-      inference_code_subfolder: _inference_code/gatedfa_fla_compat

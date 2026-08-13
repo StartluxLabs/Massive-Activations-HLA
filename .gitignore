@@ -28,5 +28,6 @@ logs/
 
 # OS/editor noise.
 .DS_Store
+._*
 .idea/
 .vscode/

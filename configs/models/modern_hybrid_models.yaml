@@ -6,7 +6,6 @@ models:
     family: Qwen3.5
     adapter: qwen
     hf_id: Qwen/Qwen3.5-35B-A3B
-    path: ${MODERN_MODEL_ROOT:-}/Qwen3.5-35B-A3B
     scale: 35B-A3B
     trust_remote_code: true
     metadata:
@@ -16,7 +15,6 @@ models:
     family: Qwen3.5
     adapter: qwen
     hf_id: Qwen/Qwen3.5-122B-A10B
-    path: ${MODERN_MODEL_ROOT:-}/Qwen3.5-122B-A10B
     scale: 122B-A10B
     trust_remote_code: true
     metadata:
@@ -26,7 +24,6 @@ models:
     family: Kimi-Linear
     adapter: kimi
     hf_id: moonshotai/Kimi-Linear-48B-A3B-Base
-    path: ${MODERN_MODEL_ROOT:-}/Kimi-Linear-48B-A3B-Base
     scale: 48B-A3B
     trust_remote_code: true
     metadata:
@@ -36,7 +33,6 @@ models:
     family: Zamba2
     adapter: zamba
     hf_id: Zyphra/Zamba2-7B
-    path: ${MODERN_MODEL_ROOT:-}/Zamba2-7B
     scale: 7B
     trust_remote_code: true
     metadata:
@@ -46,7 +42,6 @@ models:
     family: Nemotron-H
     adapter: nemotron
     hf_id: nvidia/Nemotron-H-56B-Base-8K
-    path: ${MODERN_MODEL_ROOT:-}/Nemotron-H-56B-Base-8K
     scale: 56B
     trust_remote_code: true
     metadata:
